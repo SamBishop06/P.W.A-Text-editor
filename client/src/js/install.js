@@ -2,22 +2,38 @@ const butInstall = document.getElementById('buttonInstall');
 
 // Logic for installing the PWA
 // TODO: Add an event handler to the `beforeinstallprompt` event
+
+// Logic for handling the beforeinstallprompt event
 window.addEventListener('beforeinstallprompt', (event) => {
-    window.deferredPrompt = event; // Store the deferred prompt event
-    butInstall.classList.toggle('hidden', false); // Make the install button visible
+    console.log("event" + event);
+    console.log("hit");
+    // Prevent the default behavior of the event
+    event.preventDefault();
+    // Store the deferred prompt event for later use
+    window.deferredPrompt = event;
+    // Make the install button visible
+    butInstall.classList.toggle('hidden', false);
 });
 
-// TODO: Implement a click event handler on the `butInstall` element
-butInstall.addEventListener('click', async () => {const promptEvent = window.deferredPrompt; // Retrieve the deferred prompt
-if (!promptEvent) { 
-    return; // If no prompt event is available, exit the function
-}
-promptEvent.prompt(); // Prompt the user to install the PWA
-window.deferredPrompt = null; // Clear the deferred prompt after prompting
-butInstall.classList.toggle('hidden', true); // Hide the install button after prompting
+// Logic for handling the click event on the install button
+butInstall.addEventListener('click', async () => {
+    // Retrieve the deferred prompt event
+    const promptEvent = window.deferredPrompt;
+    // If no prompt event is available, exit the function
+    if (!promptEvent) {
+        return;
+    }
+    // Prompt the user to install the PWA
+    promptEvent.prompt();
+    // Clear the deferred prompt after prompting
+    window.deferredPrompt = null;
+    // Hide the install button after prompting
+    butInstall.classList.toggle('hidden', true);
 });
 
-// TODO: Add an handler for the `appinstalled` event
-window.addEventListener('appinstalled', (event) => { 
-    window.deferredPrompt = null; // Clear the deferred prompt when the app is installed
+// Logic for handling the appinstalled event
+window.addEventListener('appinstalled', (event) => {
+    console.log("instal hit");
+    // Clear the deferred prompt when the app is installed
+    window.deferredPrompt = null;
 });

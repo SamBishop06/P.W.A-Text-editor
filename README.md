@@ -24,15 +24,16 @@ Progressive Web Application (PWA) text editor a web-based tool that allows users
   * [Node.js](https://nodejs.org/en). Use command "node -v" in the terminal to see if it is already installed on your computer
 
 ## Usage
+*runs locally but was having deployment issues also couldnt figure the install button issues out *
 To use the application from the command line (after installing dependencies):
-- Use command `npm install` to install dependencies
-- Use command `npm run build` 
-- Use command `npm start` 
+ `npm install` to install dependencies
+`npm run build` 
+ `npm start` 
 
 ## SOURCES
 Utsa mini project 19 
 Tutor: Andres
-Nate Sisler,Jeffery Gilbert
+Nate Sisler
 
 ## Questins
 Samuelbishop06@yamil.com
